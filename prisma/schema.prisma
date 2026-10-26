@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(cuid())
+  name     String
+  email    String    @unique
+  password String
+  role     String    @default("user")
+  comments Comment[]
+  ratings  Rating[]
+}
+
+model Place {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  location    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  availability Availability[]
+  comments     Comment[]
+  ratings      Rating[]
+}
+
+model Availability {
+  id      String   @id @default(cuid())
+  placeId String
+  date    DateTime
+  isOpen  Boolean  @default(true)
+  notes   String?
+
+  place Place @relation(fields: [placeId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+
+  userId  String
+  placeId String
+
+  user  User  @relation(fields: [userId], references: [id])
+  place Place @relation(fields: [placeId], references: [id])
+}
+
+model Rating {
+  id        String   @id @default(cuid())
+  score     Int
+  createdAt DateTime @default(now())
+
+  userId  String
+  placeId String
+
+  user  User  @relation(fields: [userId], references: [id])
+  place Place @relation(fields: [placeId], references: [id])
+
+  @@unique([userId, placeId], name: "userId_placeId")
+}
