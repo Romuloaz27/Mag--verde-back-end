@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
+  <title>Magé Verde - Admin</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="headerTitle">Painel Administrativo</h1>
+    <a href="index.html" class="logoutBtn" id="logoutBtn">Sair</a>
+  </header>
+  <main class="main">
+
+    <!-- ===================== ATRAÇÕES ===================== -->
+    <h2 class="subtitle">Atrações Cadastradas</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="th">Nome</th>
+          <th class="th">Localização</th>
+          <th class="th">Descrição</th>
+          <th class="th">Ações</th>
+        </tr>
+      </thead>
+      <!-- As linhas são preenchidas pelo admin.js a partir da API (GET /places) -->
+      <tbody id="placesTableBody">
+        <tr>
+          <td class="td" colspan="4">Carregando atrações...</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="form-section">
+      <h3>Cadastrar Atração</h3>
+      <!--
+        Observação: os campos "Categoria" e "Imagem" do protótipo original
+        foram removidos aqui porque o back-end atual (model Place) ainda
+        não possui essas colunas. Fica registrado como melhoria futura,
+        fora do escopo desta versão do MVP.
+      -->
+      <form class="form" id="placeForm">
+        <label class="label" for="placeName">
+          Nome
+          <input id="placeName" name="name" type="text" placeholder="Nome da atração" class="input" required>
+        </label>
+
+        <label for="placeLocation" class="label">
+          Localização
+          <input id="placeLocation" name="location" type="text" placeholder="Ex: Costa do Sol - Saquarema" class="input" required>
+        </label>
+
+        <label for="placeDescription" class="label">
+          Descrição
+          <textarea id="placeDescription" name="description" placeholder="Descrição da atração..." class="textarea" required></textarea>
+        </label>
+
+        <button type="submit" class="save-btn">Salvar Atração</button>
+      </form>
+    </section>
+
+    <!-- ===================== DISPONIBILIDADE ===================== -->
+    <h2 class="subtitle" style="margin-top: 2rem;">Gestão de Disponibilidade</h2>
+
+    <section class="form-section">
+      <h3>Cadastrar Disponibilidade</h3>
+      <form class="form" id="availabilityForm">
+        <label class="label" for="availabilityPlace">
+          Atração
+          <select id="availabilityPlace" name="placeId" class="input" required>
+            <option value="" disabled selected>Selecione uma atração</option>
+          </select>
+        </label>
+
+        <label class="label" for="availabilityDate">
+          Data
+          <input id="availabilityDate" name="date" type="date" class="input" required>
+        </label>
+
+        <label class="label" for="availabilityStatus">
+          Status
+          <select id="availabilityStatus" name="isOpen" class="input">
+            <option value="true">Aberto</option>
+            <option value="false">Fechado</option>
+          </select>
+        </label>
+
+        <label class="label" for="availabilityNotes">
+          Observações
+          <textarea id="availabilityNotes" name="notes" placeholder="Ex: Fechado para manutenção" class="textarea"></textarea>
+        </label>
+
+        <button type="submit" class="save-btn">Salvar Disponibilidade</button>
+      </form>
+    </section>
+
+    <table class="table" style="margin-top: 1.5rem;">
+      <thead>
+        <tr>
+          <th class="th">Data</th>
+          <th class="th">Status</th>
+          <th class="th">Observações</th>
+          <th class="th">Ações</th>
+        </tr>
+      </thead>
+      <!-- Preenchida ao escolher uma atração no select acima -->
+      <tbody id="availabilityTableBody">
+        <tr>
+          <td class="td" colspan="4">Selecione uma atração acima para ver a disponibilidade.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <script defer src="js/admin.js"></script>
+</body>
+
+</html>
