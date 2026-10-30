@@ -1,6 +1,6 @@
 # Mag--verde-back-end
 projeto Magé verde back-end  
-# Magé Verde Online 🌿
+# Magé Verde Online 
 
 Plataforma web do **Circuito Magé Verde**, com um site público de ecoturismo
 (front-end) e uma **API REST** (back-end) que permite a administradores
@@ -31,7 +31,7 @@ Barão de Mauá e Serra dos Órgãos). Há dois perfis de uso:
 - **Visitantes**: consultam informações públicas e, quando registrados,
   comentam e avaliam as atrações.
 
-## 🎯 Objetivo do MVP
+Objetivo do MVP
 
 Entregar uma API que centralize o cadastro das atrações do circuito, com
 login de administrador, controle de disponibilidade, comentários e avaliações,
@@ -40,7 +40,7 @@ os dados fixos do protótipo por dados persistidos em banco.
 
 ---
 
-## 📌 Escopo
+ Escopo
 
 **Dentro do escopo**
 
@@ -67,7 +67,7 @@ os dados fixos do protótipo por dados persistidos em banco.
 
 ---
 
-## ✅ Requisitos Funcionais (RF)
+##  Requisitos Funcionais (RF)
 
 | ID | Descrição |
 |----|-----------|
@@ -86,7 +86,7 @@ os dados fixos do protótipo por dados persistidos em banco.
 | RF13 | O usuário autenticado avalia uma atração de 1 a 5 (uma avaliação por usuário por atração). |
 | RF14 | Visitantes consultam as avaliações de uma atração. |
 
-## 🔒 Requisitos Não Funcionais (RNF)
+ Requisitos Não Funcionais (RNF)
 
 | ID | Descrição |
 |----|-----------|
@@ -100,7 +100,7 @@ os dados fixos do protótipo por dados persistidos em banco.
 
 ---
 
-## 🚀 Tecnologias
+Tecnologias
 
 | Camada | Tecnologias |
 |---|---|
@@ -111,7 +111,7 @@ os dados fixos do protótipo por dados persistidos em banco.
 
 ---
 
-## 📁 Estrutura do repositório
+ Estrutura do repositório
 
 ```
 mage-verde-online/
@@ -146,7 +146,7 @@ mage-verde-online/
 
 ---
 
-## ▶️ Como executar
+Como executar
 
 Pré-requisitos: **Node.js** (v20 ou superior) e **VS Code** com a extensão **Live Server**.
 
@@ -182,7 +182,7 @@ A API sobe em `http://127.0.0.1:3001`. Deixe esse terminal aberto.
 2. Clique com o botão direito em `public/index.html` → **Open with Live Server**.
 3. O site abre em `http://127.0.0.1:5500/public/index.html`.
 
-> ⚠️ **Importante:** front e back-end devem usar o mesmo host (`127.0.0.1`).
+>  **Importante:** front e back-end devem usar o mesmo host (`127.0.0.1`).
 > Misturar `localhost` com `127.0.0.1` faz o navegador bloquear o cookie de
 > login (`SameSite=Lax`), e as ações de administrador falham.
 > Se mudar a porta do Live Server, atualize `CLIENT_URL` no `.env` do back-end.
@@ -201,7 +201,7 @@ Para acessar o painel: **Portal Administrativo** → login com `carla@example.co
 
 ---
 
-## 🔌 Endpoints da API
+ Endpoints da API
 
 Base: `http://127.0.0.1:3001`
 
@@ -240,7 +240,7 @@ Exemplos de corpo (JSON):
 
 ---
 
-## ⚠️ Limitações conhecidas
+  Limitações conhecidas
 
 - No cadastro (`/auth/sign-up`) o próprio usuário informa o `role`, então
   qualquer pessoa consegue se registrar como administrador. Em produção, o
@@ -253,7 +253,7 @@ Exemplos de corpo (JSON):
 
 ---
 
-## 🔗 Links
+ Links
 
 - Repositório: _(adicione aqui o link do GitHub)_
 - Protótipos: pasta `frontend/prototipos`
